@@ -8,12 +8,12 @@ const BOARD_SIZE = 8,
     PLAYER_TWO = 2,
     PLAYERS = {
         [PLAYER_ONE]: {
-            name: "Player One",
-            class: "player-one"
+            name: "Player Grey",
+            class: "player-grey"
         },
         [PLAYER_TWO]: {
-            name: "Player Two",
-            class: "player-two"
+            name: "Player Red",
+            class: "player-red"
         }
     };
 
