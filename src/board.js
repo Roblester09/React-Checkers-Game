@@ -23,7 +23,7 @@ Board.prototype.fillBoard = board => {
 
     for (let i = 0; i < 3; i++) {
         for (let col = 0; col < size; col+=2) {
-            if (i % 2 == 1) {
+            if (i % 2 === 1) {
                 board[row-i][col+1] = count;
                 board[row2+i][col] = (size/2)*3 + count;
             } else {
@@ -42,7 +42,7 @@ Board.prototype.getAllMoves = function(player) {
         checkers = this.checkers;
 
     checkers.forEach((checker, i) => {
-        if (checker.player == player && !checker.removed) {
+        if (checker.player === player && !checker.removed) {
             let cMoves = this.getMoves(i);
             moves.jumps = (moves.jumps).concat(cMoves.jumps);
             moves.singles = (moves.singles).concat(cMoves.singles);
@@ -129,7 +129,7 @@ Board.prototype.getMoves = function(checker) {
         leftCol = c.col -1,
         rightCol = c.col + 1;
 
-    if (c.player == this.playerOne || c.isKing) {
+    if (c.player === this.playerOne || c.isKing) {
         jumps = this.checkJumps(topRow, topRow-1, leftCol, rightCol, leftCol-1, rightCol+1, c.player);
         if (!jumps.length) {
             singles = this.checkAdjacent(topRow, leftCol, rightCol);
@@ -137,10 +137,14 @@ Board.prototype.getMoves = function(checker) {
 
     }
 
-    if (c.player == this.playerTwo || c.isKing) {
+    if (c.player === this.playerTwo || c.isKing) {
+
         jumps = jumps.concat(this.checkJumps(bottomRow, bottomRow+1, leftCol, rightCol, leftCol-1, rightCol+1, c.player));
+
         if (!jumps.length) {
+
             singles = singles.concat(this.checkAdjacent(bottomRow, leftCol, rightCol));
+
         }
     }
 
@@ -201,7 +205,7 @@ Board.prototype.makeCheckers = (size, playerOne, playerTwo) => {
     for (let i = 0; i < num; i++) {
         if (i && i % (size/2) === 0){
             row--;
-            col = i == size ? 0 : 1;
+            col = i === size ? 0 : 1;
         }
         checkers.push({player: playerOne, isKing: false, row, col, removed: false});
         col+=2;
@@ -213,7 +217,7 @@ Board.prototype.makeCheckers = (size, playerOne, playerTwo) => {
     for (let i = 0; i < num; i++) {
         if (i && i % (size/2) === 0){
             row++;
-            col = i == size ? 1 : 0;
+            col = i === size ? 1 : 0;
         }
         checkers.push({player: playerTwo, isKing: false, row, col, removed: false});
         col+=2;

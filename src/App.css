@@ -10,9 +10,9 @@
 }
 
 .App-header {
-    background-color: red;
-    height: 53px;
-    padding: 20px;
+    background-color: black;
+    height: 50px;
+    padding: 10px 0 30px 0;
     color: white;
 }
 
@@ -24,14 +24,15 @@
 }
 
 .board {
-    width: 700px;
+    width: 550px;
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    border: 3px solid black;
 }
 
 .row {
-    height: 80px;
+    height: 65px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -47,7 +48,7 @@
     justify-content: center;
     -ms-flex-align: center;
     align-items: center;
-    border: 2px solid transparent;
+    border: 2px solid gray;
 }
 
 .selected {
@@ -83,6 +84,14 @@ span.player-grey, span.player-red {
 
 .player-red {
     background-color: red;
+}
+
+.restart-btn {
+    padding: 10px 30px;
+    background-color: red;
+    border-radius: 8px;
+    font-size: 14px;
+    color: white;
 }
 
 #winner {
