@@ -25,14 +25,14 @@
 }
 
 .board {
-    width: 400px;
+    width: 500px;
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 .row {
-    height: 50px;
+    height: 60px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -45,6 +45,7 @@
 }
 
 .square {
+    cursor: pointer;
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
@@ -81,9 +82,9 @@
 
 .player-one, .player-two {
     border-radius: 50%;
-    width: 75%;
-    height: 75%;
-    border: 1px solid black;
+    width: 70%;
+    height: 70%;
+    border: 2px solid black;
 }
 
 span.player-one, span.player-two {
@@ -115,7 +116,7 @@ span.player-one, span.player-two {
 }
 
 #winner p {
-    font-size: 35px;
+    font-size: 45px;
     font-weight: bold;
 }
 

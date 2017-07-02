@@ -76,6 +76,7 @@ class App extends Component {
         }
     }
 
+    //allows the player to select a legal square
     canSelectSquare(row, column) {
         let square = this.state.board.board[row][column];
         if (!square) {
@@ -89,10 +90,12 @@ class App extends Component {
         this.setState({selectedSquare: {row: row, column: column}});
     }
 
+    //keeps track of the player turn
     nextPlayer() {
         return (this.state.turn == PLAYER_ONE ? PLAYER_TWO : PLAYER_ONE)
     }
 
+    //restarts the board/game
     restart() {
         this.setState({ board: new Board(BOARD_SIZE, PLAYER_ONE, PLAYER_TWO),
             turn: PLAYER_ONE, selectedSquare: null, winner: null });
@@ -118,11 +121,14 @@ class App extends Component {
                            selectSquare={this.selectSquare.bind(this)}
                 />
 
+
+
             </div>
         );
     }
 }
 
+//Displays once a winner has been determined. Allows the user to play again.
 function Winner(props) {
     let player = PLAYERS[props.player].name;
     return (
@@ -135,6 +141,7 @@ function Winner(props) {
     );
 }
 
+//Render the game board to the screen
 class GameBoard extends Component {
     render() {
         let selectedRow = this.props.selectedSquare ? this.props.selectedSquare.row : null,
